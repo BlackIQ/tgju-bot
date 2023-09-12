@@ -6,10 +6,11 @@ const { flags } = constdataConfig;
 
 const whichFlag = (value) => {
   const code = value.split("_")[1];
+  const flag = flags[code];
 
-  console.log({ value, code, flags });
+  console.log({ value, code, flag });
 
-  return flags[code] || "🏳️";
+  return flag || "🏳️";
 };
 
 export const GOLD = async (ctx) => {
