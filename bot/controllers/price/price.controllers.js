@@ -5,7 +5,7 @@ import { constdataConfig } from "$bot/config/index.js";
 const { flags } = constdataConfig;
 
 const whichFlag = (value) => {
-  const code = value.split("_")[1];
+  const code = value.split("_")[1].toUpperCase();
   const flag = flags[code];
 
   console.log({ value, code, flag });
