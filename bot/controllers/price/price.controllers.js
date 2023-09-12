@@ -23,7 +23,7 @@ export const CURRENCY = async (ctx) => {
     const { data } = await API.get("price/currency");
 
     const messages = data.map(
-      (item) => `${getEmojiFlag(item.value)} ${item.title}: ${item.price}`
+      (item) => `${getEmojiFlag(item.key)} ${item.title}: ${item.price}`
     );
 
     await ctx.replyWithMarkdown(messages.join("\n"));
