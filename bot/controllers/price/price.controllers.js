@@ -1,5 +1,15 @@
 import { API } from "$bot/api/index.js";
 
+import { constdataConfig } from "$bot/config/index.js";
+
+const { flags } = constdataConfig;
+
+const whichFlag = (value) => {
+  const code = value.split("_")[1];
+
+  return flags[code] || "🏳️";
+};
+
 export const GOLD = async (ctx) => {
   try {
     const { data } = await API.get("price/gold");
@@ -28,7 +38,9 @@ export const CURRENCY = async (ctx) => {
   try {
     const { data } = await API.get("price/currency");
 
-    const messages = data.map((item) => `${item.title}: ${item.price}`);
+    const messages = data.map(
+      (item) => `${whichFlag(item.key)} ${item.title}: ${item.price}`
+    );
 
     await ctx.replyWithMarkdown(messages.join("\n"));
   } catch (error) {
