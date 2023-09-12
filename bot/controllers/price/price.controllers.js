@@ -4,13 +4,19 @@ export const GOLD = async (ctx) => {
   try {
     const { data } = await API.get("price/gold");
 
-    const messages = data.map((item) => {
-      const ary = [];
+    const messages = [];
 
-      ary.push(item.title);
+    await Promise.all(
+      data.map((item, index) => {
+        index !== 0 && messages.push(`\n`);
 
-      item.prices.map((price) => ary.push(`${price.title}: ${price.price}`));
-    });
+        messages.push(item.title);
+
+        item.prices.map((price) =>
+          messages.push(`${price.title}: ${price.price}`)
+        );
+      })
+    );
 
     await ctx.replyWithMarkdown(messages.join("\n"));
   } catch (error) {
