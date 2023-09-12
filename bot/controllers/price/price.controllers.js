@@ -1,16 +1,16 @@
 import { API } from "$bot/api/index.js";
 
-function getEmojiFlag(value) {
-  const code = value.split("_")[1].substring(0, 2);
-
-  return code || "🏳️";
-}
-
 export const GOLD = async (ctx) => {
   try {
     const { data } = await API.get("price/gold");
 
-    const messages = [JSON.stringify(data)];
+    const messages = data.map((item) => {
+      const ary = [];
+
+      ary.push(item.title);
+
+      item.prices.map((price) => ary.push(`${price.title}: ${price.price}`));
+    });
 
     await ctx.replyWithMarkdown(messages.join("\n"));
   } catch (error) {
@@ -22,9 +22,7 @@ export const CURRENCY = async (ctx) => {
   try {
     const { data } = await API.get("price/currency");
 
-    const messages = data.map(
-      (item) => `:${getEmojiFlag(item.key)}: ${item.title}: ${item.price}`
-    );
+    const messages = data.map((item) => `${item.title}: ${item.price}`);
 
     await ctx.replyWithMarkdown(messages.join("\n"));
   } catch (error) {
