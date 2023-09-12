@@ -11,3 +11,15 @@ export const GOLD = async (ctx) => {
     await ctx.reply(error.message);
   }
 };
+
+export const CURRENCY = async (ctx) => {
+  try {
+    const { data } = await API.get("price/currency");
+
+    const messages = data.map((item) => `${item.title}: ${item.price}`);
+
+    await ctx.replyWithMarkdown(messages.join("\n"));
+  } catch (error) {
+    await ctx.reply(error.message);
+  }
+};
