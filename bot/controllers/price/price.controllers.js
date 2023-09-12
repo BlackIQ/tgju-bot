@@ -7,6 +7,8 @@ const { flags } = constdataConfig;
 const whichFlag = (value) => {
   const code = value.split("_")[1];
 
+  console.log({ value, code, flags });
+
   return flags[code] || "🏳️";
 };
 
