@@ -1,0 +1,15 @@
+version: "3"
+
+services:
+  bot:
+    build: .
+    container_name: tgju-bot
+    restart: always
+    networks:
+      - ohvpn-network
+    environment:
+      BOT_TOKEN: ${BOT_TOKEN}
+      BASE_URL: ${BASE_URL}
+
+networks:
+  ohvpn-network:
