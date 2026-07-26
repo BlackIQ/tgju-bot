@@ -6,10 +6,10 @@ services:
     container_name: tgju-bot
     restart: always
     networks:
-      - ohvpn-network
+      - tgju-network
     environment:
       BOT_TOKEN: ${BOT_TOKEN}
       BASE_URL: ${BASE_URL}
 
 networks:
-  ohvpn-network:
+  tgju-network:
