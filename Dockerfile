@@ -1,6 +1,6 @@
 FROM python:3.13-alpine
 
-COPY --from=ghcr.io/astral-sh/uv:python3.13-alpine /uv /uvx /bin/
+COPY --from=ghcr.io/astral-sh/uv:latest /uv /uvx /bin/
 
 LABEL authors="amirhosseinmohammadi"
 
