@@ -9,4 +9,5 @@ dependencies = [
     "pydantic-settings>=2.14.2",
     "python-dotenv>=1.2.2",
     "python-telegram-bot>=22.8",
+    "requests>=2.34.2",
 ]
