@@ -5,6 +5,7 @@ from telegram.ext import Application, CommandHandler, CallbackQueryHandler, Cont
 # Application
 from core.settings import settings  # Settings
 from controllers.home import home  # Home Controller
+from controllers.about import about  # About Controller
 from controllers.currency import currency  # Currency Controller
 from controllers.gold import gold  # Gold Controller
 from controllers.error import error  # Error Controller
@@ -24,6 +25,8 @@ async def query_handler(update: Update, context: ContextTypes.DEFAULT_TYPE) -> N
     match query.data:
         case "home":
             await home(update, context, False)
+        case "about":
+            await about(update, context)
         case "currency":
             await currency(update, context)
         case "gold":
