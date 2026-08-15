@@ -4,8 +4,8 @@ from telegram.ext import ContextTypes  # Telegram
 import requests  # Requests
 
 # Application
-from core.settings import settings  # Settings
-from data.flags import flags  # Data
+from core.settings import settings  # Core: Settings
+from data.flags import flags  # Data: Flags
 
 
 def attach_flag(value: str) -> str:
