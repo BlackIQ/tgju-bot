@@ -1,14 +1,19 @@
-# Telegram
-from telegram import Update
-from telegram.ext import Application, CommandHandler, CallbackQueryHandler, ContextTypes
+# Libs
+from telegram import Update  # Telegram
+from telegram.ext import (
+    Application,
+    CommandHandler,
+    CallbackQueryHandler,
+    ContextTypes,
+)  # Telegram
 
 # Application
-from core.settings import settings  # Settings
-from controllers.home import home  # Home Controller
-from controllers.about import about  # About Controller
-from controllers.currency import currency  # Currency Controller
-from controllers.gold import gold  # Gold Controller
-from controllers.error import error  # Error Controller
+from core.settings import settings  # Core: Settings
+from controllers.home import home  # Controller: Home
+from controllers.about import about  # Controller: About
+from controllers.currency import currency  # Controller: Currency
+from controllers.gold import gold  # Controller: Gold
+from controllers.error import error  # Controller: Error
 
 
 # Start Command
