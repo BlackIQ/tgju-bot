@@ -1,6 +1,6 @@
-# Telegram
-from telegram import InlineKeyboardButton, InlineKeyboardMarkup, Update
-from telegram.ext import ContextTypes
+# Libs
+from telegram import InlineKeyboardButton, InlineKeyboardMarkup, Update  # Telegram
+from telegram.ext import ContextTypes  # Telegram
 
 
 # Error
