@@ -1,13 +1,11 @@
-# Telegram
-from telegram import InlineKeyboardButton, InlineKeyboardMarkup, Update
-from telegram.ext import ContextTypes
-
-# Requests
-import requests
+# Libs
+from telegram import InlineKeyboardButton, InlineKeyboardMarkup, Update  # Telegram
+from telegram.ext import ContextTypes  # Telegram
+import requests  # Requests
 
 # Application
 from core.settings import settings  # Settings
-from data.flags import flags
+from data.flags import flags  # Data
 
 
 def attach_flag(value: str) -> str:
@@ -28,7 +26,12 @@ async def currency(update: Update, context: ContextTypes.DEFAULT_TYPE):
         ]
     ]
 
-    response = requests.get(f"{settings.base_url}/price/currency")
+    response = requests.get(
+        f"{settings.base_url}/price/currency",
+        headers={
+            "X-Request-ID": "TGJU_BOT",
+        },
+    )
 
     if not response.ok:
         message = "متاسفانه عملات انجام نشد و نتونستم قیمت‌ها رو برات بیارم..."
