@@ -21,7 +21,7 @@ async def gold(update: Update, context: ContextTypes.DEFAULT_TYPE):
     response = requests.get(
         f"{settings.base_url}/price/gold",
         headers={
-            "X-Request-ID": "TGJU_BOT",
+            "X-Client-ID": "TGJU_BOT",
         },
     )
 

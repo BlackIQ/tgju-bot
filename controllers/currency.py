@@ -29,7 +29,7 @@ async def currency(update: Update, context: ContextTypes.DEFAULT_TYPE):
     response = requests.get(
         f"{settings.base_url}/price/currency",
         headers={
-            "X-Request-ID": "TGJU_BOT",
+            "X-Client-ID": "TGJU_BOT",
         },
     )
 
